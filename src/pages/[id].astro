@@ -17,19 +17,12 @@ const { post } = Astro.props;
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{post.title}</title>
   </head>
-  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333; background-color: #fff;">
-    <nav style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
-      <a href="/" style="color: #0070f3; text-decoration: none; font-weight: bold;">← 記事一覧に戻る</a>
-    </nav>
-    <article>
-      <h1 style="font-size: 2rem; margin-bottom: 20px;">{post.title}</h1>
-      <div style="font-size: 1.1rem; color: #444;" set:html={post.content} />
-    </article>
-    <footer style="margin-top: 50px; text-align: center; color: #999; font-size: 0.8rem;">
-      © 2026 My 3D Blog
-    </footer>
+  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+    <a href="/" style="color: #0070f3; text-decoration: none;">← 記事一覧に戻る</a>
+    <h1 style="margin-top: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">{post.title}</h1>
+    {/* ↓ 記事の本分を表示します */}
+    <div style="margin-top: 20px;" set:html={post.content} />
   </body>
 </html>
