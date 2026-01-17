@@ -16,8 +16,11 @@ const data = await response.json();
     <h1 style="border-bottom: 2px solid #0070f3; padding-bottom: 10px;">記事一覧</h1>
     <ul style="list-style: none; padding: 0;">
       {data.contents.map((post: any) => (
-        <li style="margin: 15px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: white;">
-          {post.title}
+        <li style="margin: 15px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          {/* ↓ ここをリンクにしました */}
+          <a href={`/${post.id}`} style="color: #0070f3; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: block;">
+            {post.title} →
+          </a>
         </li>
       ))}
     </ul>
