@@ -16,11 +16,12 @@ const { post } = Astro.props;
 ---
 <html lang="ja">
   <head>
+    <meta charset="utf-8" />
     <title>{post.title}</title>
   </head>
-  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-    <a href="/" style="color: #0070f3; text-decoration: none;">← 記事一覧に戻る</a>
-    <h1 style="margin-top: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">{post.title}</h1>
-    <div set:html={post.content} />
+  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;">
+    <a href="/" style="color: #0070f3; text-decoration: none; font-weight: bold;">← 記事一覧に戻る</a>
+    <h1 style="margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">{post.title}</h1>
+    <div style="margin-top: 20px;" set:html={post.content} />
   </body>
 </html>
