@@ -1,5 +1,19 @@
 ---
-// テストページ
+const response = await fetch(
+  `https://${import.meta.env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/blog`,
+  {
+    headers: { "X-MICROCMS-API-KEY": import.meta.env.MICROCMS_API_KEY },
+  }
+);
+const data = await response.json();
 ---
-<h1>宇宙飛行士、卒業！</h1>
-<p>この文字が見えたら、あなたの勝ちです。</p>
+<html lang="ja">
+  <body>
+    <h1>ブログ記事一覧（テスト）</h1>
+    <ul>
+      {data.contents.map((post: any) => (
+        <li>{post.title}</li>
+      ))}
+    </ul>
+  </body>
+</html>
