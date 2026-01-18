@@ -4,27 +4,63 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>お問い合わせ</title>
+    <title>Contact | Gemino AI × 3D Creative</title>
   </head>
-  <body style="font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fcfaf2; color: #333; margin: 0; padding: 0;">
-    <nav style="padding: 15px 20px; background: #fff; border-bottom: 1px solid #e0e0e0;">
-      <a href="/" style="color: #556b2f; text-decoration: none; font-weight: bold;">← 戻る</a>
-    </nav>
-    
-    <article style="max-width: 650px; margin: 20px auto; padding: 40px 20px; background: white; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
-      <h1 style="font-size: 1.6rem; color: #2e3b10; border-bottom: 3px solid #fcfaf2; padding-bottom: 10px; margin-bottom: 30px;">お問い合わせ</h1>
-      
-      <p style="text-align: left; margin-bottom: 20px;">当ブログに関するご意見・ご質問は、以下のフォームよりお気軽にお送りください。</p>
+  <body style="font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8f9f1; color: #333; margin: 0; padding: 0;">
 
-      <div style="width: 100%; min-height: 600px;">
+    <header style="background: linear-gradient(135deg, #556b2f 0%, #2e3b10 100%); color: white; padding: 40px 20px; text-align: center;">
+      <a href="/" style="color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.8;">← Back to Home</a>
+      <h1 style="margin: 20px 0 0; font-size: 2rem; letter-spacing: 2px;">CONTACT</h1>
+      <p style="margin-top: 10px; opacity: 0.9;">ご依頼、アイデア、ご相談はこちらから</p>
+    </header>
+
+    <main style="max-width: 700px; margin: 40px auto; padding: 0 20px;">
+      <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
         
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1HRyJmoJ-5HDnrK8fbC99-h5IskCb9avENRNizYRotM32Kg/viewform?embedded=true" width="640" height="689" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <form action="https://formspree.io/f/mdaaergn" method="POST"> <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #2e3b10;">お名前</label>
+            <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;" placeholder="姓名">
+          </div>
 
+          <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #2e3b10;">メールアドレス</label>
+            <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;" placeholder="example@mail.com">
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #2e3b10;">お問い合わせの種類</label>
+            <select name="type" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; background: white; box-sizing: border-box;">
+              <option value="order">3D制作・修理のご依頼</option>
+              <option value="idea">制作アイデアの投稿</option>
+              <option value="consulting">コンサルティング・仕事の相談</option>
+              <option value="other">その他のお問い合わせ</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #2e3b10;">メッセージ内容</label>
+            <textarea name="message" rows="6" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;" placeholder="具体的なご要望や、ワクワクするアイデアをお聞かせください"></textarea>
+          </div>
+
+          <div style="text-align: center;">
+            <button type="submit" style="background: #556b2f; color: white; border: none; padding: 15px 50px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background 0.3s;">
+              メッセージを送信する
+            </button>
+          </div>
+
+        </form>
       </div>
-    </article>
 
-    <footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.8rem;">
-      <p>© 2026 My Blog</p>
+      <div style="margin-top: 40px; text-align: center; color: #666; font-size: 0.9rem;">
+        <p>※通常3営業日以内にGeminoよりご返信いたします。</p>
+      </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #888;">
+      <p>© 2026 Gemino's 3D & Info Blog</p>
+    </footer>
+  </body>
+</html>
     </footer>
   </body>
 </html>
