@@ -11,35 +11,43 @@ const data = await response.json();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Specialist Blog</title>
+    <title>Gemino's 3D & Info Blog</title>
   </head>
   <body style="font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; background-color: #f8f9f1; color: #333; margin: 0; padding: 0;">
     
-    <header style="background: linear-gradient(135deg, #556b2f 0%, #2e3b10 100%); color: white; padding: 60px 20px; text-align: center;">
-      <h1 style="margin: 0; font-size: 2.2rem; letter-spacing: 3px; font-weight: bold;">INFO & 3D CREATIVE</h1>
+    <header style="position: relative; background: url('/top-image.png') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; min-height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1;"></div>
       
-      <p style="margin: 15px 0 0; font-size: 1.1rem; opacity: 0.9;">「お得」と「創る」を、もっと身近に。</p>
-      
-      <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
-        <div style="width: 60px; height: 60px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #556b2f; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">Me</div>
-        <div style="text-align: left;">
-          <p style="margin: 0; font-weight: bold; font-size: 1rem;">あなたのハンドルネーム</p>
-          <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">3D制作 ＆ じもてぃスポット活用中</p>
+      <div style="position: relative; z-index: 2;">
+        <h1 style="margin: 0; font-size: 2.5rem; letter-spacing: 2px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">INFO & 3D CREATIVE</h1>
+        <p style="margin: 15px 0 0; font-size: 1.2rem; opacity: 0.9; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">「お得」と「創る」を、もっと身近に。</p>
+        
+        <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+          <div style="width: 70px; height: 70px; border: 3px solid #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <img src="/top-image.png" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <div style="text-align: left;">
+            <p style="margin: 0; font-weight: bold; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Gemino</p>
+            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">3Dクリエイター ＆ お得情報発信中</p>
+          </div>
         </div>
       </div>
     </header>
 
-    <main style="max-width: 800px; margin: -30px auto 40px; padding: 0 15px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    <main style="max-width: 900px; margin: -40px auto 40px; padding: 0 15px; position: relative; z-index: 3;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
         {data.contents.map((post: any) => (
-          <a href={`/${post.id}`} style="text-decoration: none; color: inherit; transition: transform 0.2s; display: block;" class="post-card">
-            <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee; height: 100%;">
-              <div style="background: #e9ecef; height: 160px; display: flex; align-items: center; justify-content: center; color: #adb5bd;">
-                 {post.eyecatch ? <img src={post.eyecatch.url} style="width:100%; height:100%; object-fit:cover;" /> : "NO IMAGE"}
+          <a href={`/${post.id}`} style="text-decoration: none; color: inherit; transition: transform 0.3s; display: block;" class="post-card">
+            <article style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; height: 100%;">
+              <div style="background: #e9ecef; height: 180px; display: flex; align-items: center; justify-content: center;">
+                 {post.eyecatch ? <img src={post.eyecatch.url} style="width:100%; height:100%; object-fit:cover;" /> : <div style="color:#adb5bd;">NO IMAGE</div>}
               </div>
               <div style="padding: 20px;">
-                <h2 style="margin: 0 0 10px; font-size: 1.2rem; color: #2e3b10; line-height: 1.4;">{post.title}</h2>
-                <p style="font-size: 0.9rem; color: #666; margin: 0;">続きを読む →</p>
+                <h2 style="margin: 0 0 10px; font-size: 1.25rem; color: #2e3b10; line-height: 1.4;">{post.title}</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                  <span style="font-size: 0.8rem; color: #999;">Read More</span>
+                  <span style="color: #556b2f; font-weight: bold;">→</span>
+                </div>
               </div>
             </article>
           </a>
@@ -47,16 +55,16 @@ const data = await response.json();
       </div>
     </main>
 
-    <footer style="text-align: center; padding: 40px 20px; color: #888; background: #fff; margin-top: 40px;">
-      <p style="margin-bottom: 10px;">© 2026 My Blog</p>
-      <div style="font-size: 0.85rem;">
-        <a href="/policy" style="color: #556b2f; text-decoration: none; margin: 0 10px;">ポリシー</a>
-        <a href="/contact" style="color: #556b2f; text-decoration: none; margin: 0 10px;">お問い合わせ</a>
+    <footer style="text-align: center; padding: 60px 20px; color: #888; background: #fff; border-top: 1px solid #eee;">
+      <p style="margin-bottom: 15px; font-weight: bold;">© 2026 Gemino's Blog</p>
+      <div style="font-size: 0.9rem;">
+        <a href="/policy" style="color: #556b2f; text-decoration: none; margin: 0 15px;">プライバシーポリシー</a>
+        <a href="/contact" style="color: #556b2f; text-decoration: none; margin: 0 15px;">お問い合わせ</a>
       </div>
     </footer>
 
     <style>
-      .post-card:hover { transform: translateY(-5px); }
+      .post-card:hover { transform: translateY(-8px); }
     </style>
   </body>
 </html>
