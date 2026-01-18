@@ -10,19 +10,31 @@ const data = await response.json();
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>マイブログ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Specialist Blog</title>
   </head>
-  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; background-color: #f4f7f6;">
-    <h1 style="border-bottom: 2px solid #0070f3; padding-bottom: 10px;">記事一覧</h1>
-    <ul style="list-style: none; padding: 0;">
-      {data.contents.map((post: any) => (
-        <li style="margin: 15px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-          {/* ↓ ここをリンクにしました */}
-          <a href={`/${post.id}`} style="color: #0070f3; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: block;">
-            {post.title} →
+  <body style="font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fcfaf2; color: #4a4a4a; margin: 0; padding: 0;">
+    <header style="background-color: #556b2f; color: white; padding: 40px 20px; text-align: center;">
+      <h1 style="margin: 0; font-size: 1.8rem; letter-spacing: 2px;">My 3D & Info Blog</h1>
+      <p style="margin: 10px 0 0; font-size: 0.9rem; opacity: 0.9;">日々の役立つ情報を綴ります</p>
+    </header>
+
+    <main style="max-width: 600px; margin: -20px auto 40px; padding: 0 15px;">
+      <div style="display: grid; gap: 20px;">
+        {data.contents.map((post: any) => (
+          <a href={`/${post.id}`} style="text-decoration: none; color: inherit;">
+            <article style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e0e0e0;">
+              <h2 style="margin: 0; font-size: 1.25rem; color: #2e3b10; line-height: 1.4;">{post.title}</h2>
+              <div style="margin-top: 15px; color: #556b2f; font-weight: bold; font-size: 0.9rem;">記事を読む →</div>
+            </article>
           </a>
-        </li>
-      ))}
-    </ul>
+        ))}
+      </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.8rem;">
+      <p>© 2026 My Blog</p>
+      <a href="/policy" style="color: #888; text-decoration: underline;">プライバシーポリシー</a>
+    </footer>
   </body>
 </html>
