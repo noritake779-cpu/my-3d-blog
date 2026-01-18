@@ -13,29 +13,49 @@ const data = await response.json();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Specialist Blog</title>
   </head>
-  <body style="font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fcfaf2; color: #4a4a4a; margin: 0; padding: 0;">
-    <header style="background-color: #556b2f; color: white; padding: 40px 20px; text-align: center;">
-      <h1 style="margin: 0; font-size: 1.8rem; letter-spacing: 2px;">My 3D & Info Blog</h1>
-      <p style="margin: 10px 0 0; font-size: 0.9rem; opacity: 0.9;">日々の役立つ情報を綴ります</p>
+  <body style="font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; background-color: #f8f9f1; color: #333; margin: 0; padding: 0;">
+    
+    <header style="background: linear-gradient(135deg, #556b2f 0%, #2e3b10 100%); color: white; padding: 60px 20px; text-align: center;">
+      <h1 style="margin: 0; font-size: 2.2rem; letter-spacing: 3px; font-weight: bold;">INFO & 3D CREATIVE</h1>
+      <p style="margin: 15px 0 0; font-size: 1.1rem; opacity: 0.9;">「お得」と「創る」を、もっと身近に。</p>
+      
+      <div style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+        <div style="width: 60px; height: 60px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #556b2f; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">Me</div>
+        <div style="text-align: left;">
+          <p style="margin: 0; font-weight: bold; font-size: 1rem;">Admin Name</p>
+          <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">3D制作 ＆ じもてぃスポット活用中</p>
+        </div>
+      </div>
     </header>
 
-    <main style="max-width: 600px; margin: -20px auto 40px; padding: 0 15px;">
-      <div style="display: grid; gap: 20px;">
+    <main style="max-width: 800px; margin: -30px auto 40px; padding: 0 15px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
         {data.contents.map((post: any) => (
-          <a href={`/${post.id}`} style="text-decoration: none; color: inherit;">
-            <article style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e0e0e0;">
-              <h2 style="margin: 0; font-size: 1.25rem; color: #2e3b10; line-height: 1.4;">{post.title}</h2>
-              <div style="margin-top: 15px; color: #556b2f; font-weight: bold; font-size: 0.9rem;">記事を読む →</div>
+          <a href={`/${post.id}`} style="text-decoration: none; color: inherit; transition: transform 0.2s; display: block;" class="post-card">
+            <article style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #eee; height: 100%;">
+              <div style="background: #e9ecef; height: 160px; display: flex; align-items: center; justify-content: center; color: #adb5bd;">
+                 {post.eyecatch ? <img src={post.eyecatch.url} style="width:100%; height:100%; object-fit:cover;" /> : "NO IMAGE"}
+              </div>
+              <div style="padding: 20px;">
+                <h2 style="margin: 0 0 10px; font-size: 1.2rem; color: #2e3b10; line-height: 1.4;">{post.title}</h2>
+                <p style="font-size: 0.9rem; color: #666; margin: 0;">続きを読む →</p>
+              </div>
             </article>
           </a>
         ))}
       </div>
     </main>
 
-<footer style="text-align: center; padding: 40px 20px; color: #888; font-size: 0.8rem;">
-  <p>© 2026 My Blog</p>
-  <a href="/policy" style="color: #888; text-decoration: underline; margin: 0 10px;">プライバシーポリシー</a>
-  <a href="/contact" style="color: #888; text-decoration: underline; margin: 0 10px;">お問い合わせ</a>
-</footer>
+    <footer style="text-align: center; padding: 40px 20px; color: #888; background: #fff; margin-top: 40px;">
+      <p style="margin-bottom: 10px;">© 2026 My Blog</p>
+      <div style="font-size: 0.85rem;">
+        <a href="/policy" style="color: #556b2f; text-decoration: none; margin: 0 10px;">ポリシー</a>
+        <a href="/contact" style="color: #556b2f; text-decoration: none; margin: 0 10px;">お問い合わせ</a>
+      </div>
+    </footer>
+
+    <style>
+      .post-card:hover { transform: translateY(-5px); }
+    </style>
   </body>
 </html>
