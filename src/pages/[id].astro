@@ -17,12 +17,29 @@ const { post } = Astro.props;
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{post.title}</title>
   </head>
-  <body style="font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-    <a href="/" style="color: #0070f3; text-decoration: none;">← 記事一覧に戻る</a>
-    <h1 style="margin-top: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">{post.title}</h1>
-    {/* ↓ 記事の本分を表示します */}
-    <div style="margin-top: 20px;" set:html={post.content} />
+  <body style="font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #333; margin: 0; padding: 0; line-height: 1.8;">
+    <nav style="padding: 15px 20px; background: #fcfaf2;">
+      <a href="/" style="color: #556b2f; text-decoration: none; font-weight: bold;">← 記事一覧</a>
+    </nav>
+    
+    <article style="max-width: 650px; margin: 0 auto; padding: 40px 20px;">
+      <h1 style="font-size: 1.8rem; color: #2e3b10; border-bottom: 3px solid #fcfaf2; padding-bottom: 20px; margin-bottom: 30px;">{post.title}</h1>
+      <div class="content-body" set:html={post.content} />
+    </article>
+
+    <footer style="background: #fcfaf2; text-align: center; padding: 40px 20px; color: #888; font-size: 0.8rem; margin-top: 60px;">
+      <p>© 2026 My Blog</p>
+    </footer>
+
+    <style is:global>
+      .content-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
+      .content-body p { margin-bottom: 1.5rem; }
+      .content-body a { color: #556b2f; }
+      /* 見出しなどもナチュラルに */
+      .content-body h2 { color: #2e3b10; border-left: 4px solid #556b2f; padding-left: 10px; margin-top: 2rem; }
+    </style>
   </body>
 </html>
